@@ -6,6 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  // "scripts": 
+  // {
+  //   "name": "writting-sass",
+  //   "version": "1.0.0",
+  //   "description": "",
+  //   "main": "index.js",
+  //   "scripts": {
+  //   "sass": "sass --watch ./sass/main.scss:.public/css/style.css"
+  // },
+  //   "author": "",
+  //   "license": "ISC",
+  // },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +31,7 @@
     "mongoose": "^5.3.8",
     "mongoose-unique-validator": "^2.0.2",
     "poper": "^0.1.1",
+    "sass": "^1.32.8",
     "uuid": "^3.3.2"
   }
 }
