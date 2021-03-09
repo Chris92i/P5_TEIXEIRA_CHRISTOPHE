@@ -6,18 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  // "scripts": 
-  // {
-  //   "name": "writting-sass",
-  //   "version": "1.0.0",
-  //   "description": "",
-  //   "main": "index.js",
-  //   "scripts": {
-  //   "sass": "sass --watch ./sass/main.scss:.public/css/style.css"
-  // },
-  //   "author": "",
-  //   "license": "ISC",
-  // },
   "author": "",
   "license": "ISC",
   "dependencies": {
