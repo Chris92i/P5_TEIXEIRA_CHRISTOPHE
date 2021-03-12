@@ -42,4 +42,7 @@ class Teddie {
 
       return card;
     }
+    getTeddieSheet(){
+        
+    }
 }
