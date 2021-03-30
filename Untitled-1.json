@@ -1,0 +1,10 @@
+{
+    "contact": {
+        "firstName": "",
+        "lastName": "",
+        "address": "",
+        "city": "",
+        "email": ""
+    },
+    "products": ["id1", "id2", "..."]
+}
