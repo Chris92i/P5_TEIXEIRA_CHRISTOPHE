@@ -3,10 +3,12 @@ window.onload = () => {
     const idTeddie = searchParams.get("id");
     const clicBtn = document.getElementById("btnAddCart");
 
-    const color = document.getElementById("colors").value;
-    const qty = document.getElementById("quantity").value;
-
+    
+    
     const addCart = () => {
+        
+        const color = document.getElementById("colors").value;
+        const qty = document.getElementById("quantity").value;
 
         // Ajouter un panier
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -18,16 +20,14 @@ window.onload = () => {
             quantite: qty
         };
 
+        console.log(teddyCart);
 
-        if (cart.length == 0) {
-            cart.push(teddyCart);
-        }
 
         var exist = false;
 
 
         for (var item of cart) {
-            if ((item.id == idTeddie) && (item.couleur == color)) {
+            if ((item.id == idTeddie) && (item.couleur == teddyCart.couleur)) {
                 item.quantite = parseInt(item.quantite) + parseInt(qty);
                 exist = true;
                 break;
@@ -38,10 +38,7 @@ window.onload = () => {
         }
 
 
-
-
         //Envoyer le pannier dans le localStorage
-
 
         let JsonCart = JSON.stringify(cart);
         localStorage.setItem("cart", JsonCart);
