@@ -1,25 +1,20 @@
-class Cart { 
+window.onload = () => {
 
-    name: "Obaseki Nosa",
-    name : '',
-    color : '',
-    price : '',
-    qty : ''
+    const localPanier = localStorage.getItem("cart");
+    console.log(localPanier);
 
+    let objCart = JSON.parse(localPanier);
+    console.log(objCart);
 
-
-    AddToCart(){
-        if 
-
-
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-    }
-    DelFromCart(){
-        localStorage.removeItem("_id");
-    }
-    DelCart(){
-        localStorage.clear();  
+    for (var teddyObj of objCart) {
+        console.log(teddyObj);
     }
 
-};
+    
+
+
+
+
+
+
+}
