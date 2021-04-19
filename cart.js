@@ -82,6 +82,7 @@ window.onload = () => {
                 console.log(objCart);
                 const cart = JSON.stringify(objCart) || [];
                 var newCart = localStorage.setItem("cart",cart);
+                document.location.reload();
 
             }
             console.log(objCart);
@@ -113,34 +114,14 @@ window.onload = () => {
     let cellTotal = document.createElement("td");
     cellTotal.classList.add("id");
     cellTotal.setAttribute("id", "Total");
+    cellTotal.setAttribute("colspan", 6);
+    cellTotal.style.textAlign = "center";
 
-    cellTotal.textContent = "Le montant total est de " + total + "€";
+
+    cellTotal.textContent = "Le montant total est de : " + total + "€";
 
     lineTotal.appendChild(cellTotal);
     tbody.appendChild(lineTotal);
-
-    // const SuppTeddie = () => {
-    //     console.log(btnSupprimer);
-    //     console.log(objCart[btnSupprimer]);
-
-    //     // var newCart = objCart.splice(btnSupprimer, 1); 
-
-    //     localStorage.removeItem(localPanier[btnSupprimer]);
-
-    //     document.location.reload();
-
-
-    //     console.log("hello my friend");
-    // }
-
-    // var el = document.getElementsByClassName("btn-primary");
-    // console.log(el);
-
-    // el.addEventListener("click", SuppTeddie);
-
-    // var el = document.getElementById(btnSupprimer);
-    // el.addEventListener("click", SuppTeddie)
-
 
 
 
