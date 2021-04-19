@@ -3,12 +3,11 @@ window.onload = () => {
     const idTeddie = searchParams.get("id");
     const clicBtn = document.getElementById("btnAddCart");
 
-    
-    
-    const addCart = () => {
-        
+    const addCart = (teddy) => {
+        console.log(teddy);
         const color = document.getElementById("colors").value;
         const qty = document.getElementById("quantity").value;
+        // let teddyName = 
 
         // Ajouter un panier
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -16,8 +15,10 @@ window.onload = () => {
         // creation de l'objet teddy qui servira de model pour l'envoi dans le panier
         let teddyCart = {
             id: idTeddie,
-            couleur: color,
-            quantite: qty
+            Nom : teddy.name,
+            couleur : color,
+            Prix : teddy.price  / 100 + "€", 
+            quantite : qty
         };
 
         console.log(teddyCart);
@@ -40,8 +41,10 @@ window.onload = () => {
 
         //Envoyer le pannier dans le localStorage
 
-        let JsonCart = JSON.stringify(cart);
+        let JsonCart =  JSON.stringify(cart);
+        console.log(JsonCart);
         localStorage.setItem("cart", JsonCart);
+        console.log(localStorage);
 
     }
 
@@ -66,6 +69,6 @@ window.onload = () => {
                 option.innerText = color;
                 select.appendChild(option);
             }
-            clicBtn.addEventListener('click', addCart);
+            clicBtn.addEventListener('click',() => addCart(teddy));
         })
 }
