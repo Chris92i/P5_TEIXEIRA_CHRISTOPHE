@@ -1,56 +1,57 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="./cart.js"></script>
-    <!-- <script src="./product.js"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="./cart.js"></script>
+  <!-- <script src="./order_confirmation.js"></script> -->
+  <!-- <script src="./product.js"></script> -->
 
-    <title>Orinoco</title>
+  <title>Orinoco</title>
 </head>
 
 <body>
-    <!-- Header -->
+  <!-- Header -->
 
+  <nav class="col navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="index.html">Orinoco</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Panier</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <nav class="col navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="index.html">Orinoco</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="navbarContent" class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Panier</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <!-- List -->
 
-    <!-- List -->
-
-    <div class="container">
-        <div class="row">
-            <table class="table table-striped table-responsive">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Couleur</th>
-                        <th scope="col">Quantité</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Supprimer</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <!-- <tr>
+  <div class="container">
+    <div class="row">
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Couleur</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Supprimer</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <!-- <tr>
                 <th scope="row">1</th>
                 <td>Mark</td>
                 <td>Otto</td>
@@ -67,9 +68,81 @@
                 <td colspan="2">Larry the Bird</td>
                 <td>@twitter</td>
               </tr> -->
-                </tbody>
-            </table>
+        </tbody>
+      </table>
+    </div>
+
+ 
+
+    <!-- FORMULAIRE  -->
+    <form id="formOrder">
+      <div class="form-row">
+        <div class="col">
+          <label for="firstName">Prénom</label>
+          <input type="text" class="form-control" placeholder="" id="firstName" maxlength="20" required>
+          <div class="valid-feedback">
+            C'est cool!
+          </div>
         </div>
+        <div class="col">
+          <label for="lastName">Nom</label>
+          <input type="text" class="form-control" placeholder="" id="lastName" maxlength="20" required>
+          <div class="valid-feedback">
+            C'est cool!
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="onorico@cool.fr" required>
+        </div>
+        <div class="invalid-feedback">
+          @@@@
+        </div>
+        <div class="col-6">
+          <label for="address" class="form-label">Addresse</label>
+          <input type="text" class="form-control" id="address" placeholder="" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-6">
+          <label for="codePostal" class="form-label">Code Postal</label>
+          <input type="text" class="form-control" id="codePostal" placeholder="" maxlength="5" pattern="[0-9]+" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="city" class="form-label">Ville</label>
+          <input type="text" class="form-control" id="city" placeholder="" required>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Valider</button>
+
+
+    </form>
+
+
+    <!-- FOOTER -->
+    <div class="row">
+      <footer class="footer-basic">
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+              class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
+            href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="index.html">Acceuil</a></li>
+          <li class="list-inline-item"><a href="#">Services</a></li>
+          <li class="list-inline-item"><a href="#">A propos</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Onorico © 2021</p>
+      </footer>
+
+
+
     </div>
 
     <!-- <form class="row g-3">
@@ -115,12 +188,6 @@
 
 
 
-    <!-- Footer -->
-    <div class="row">
-        footer
-    </div>
-
-
 
         
     <!-- Optional JavaScript -->
@@ -130,16 +197,18 @@
 
         
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
         
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+
+    <script src=""></script>
         
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
 
 </body>
 

@@ -6,10 +6,10 @@ window.onload = () => {
     let objCart = JSON.parse(localPanier) || [];
     console.log(objCart);
 
-    let teddyObj;
+    // let teddyObj;
 
     let idDuTeddy = "";
-    // let teddyObj;
+    let teddyObj;
     const tbody = document.getElementById("tbody");
 
     let compteur = 1;
@@ -54,17 +54,17 @@ window.onload = () => {
             let btnSupprimer = compteur - 1;
             btnSup.setAttribute("id", btnSupprimer);
             btnSup.setAttribute("class", "btn-primary");
-            
+
             // <button class="btn"><i class="fa fa-trash"></i> Trash</button>
-            
+
             // <i class="bi bi-trash"></i> version bootstrap
-            
+
             cellName.textContent = this.name;
             cellCouleur.textContent = this.color;
             cellQty.textContent = this.qty;
             cellPrix.textContent = parseInt(this.price) * parseInt(this.qty);
             btnSup.innerHTML = "<i class=\"fa fa-trash\"></i> Supprimer";
-        
+
 
             line.appendChild(indicateur);
             line.appendChild(cellName);
@@ -75,13 +75,13 @@ window.onload = () => {
             cellSupp.appendChild(btnSup);
             tbody.appendChild(line);
             compteur++;
-            
+
             const SuppTeddie = () => {
                 console.log("hello BG");
-                objCart.splice(btnSupprimer,1);
+                objCart.splice(btnSupprimer, 1);
                 console.log(objCart);
                 const cart = JSON.stringify(objCart) || [];
-                var newCart = localStorage.setItem("cart",cart);
+                var newCart = localStorage.setItem("cart", cart);
                 document.location.reload();
 
             }
@@ -113,6 +113,7 @@ window.onload = () => {
 
     let cellTotal = document.createElement("td");
     cellTotal.classList.add("id");
+    cellTotal.classList.add("font-weight-bold");
     cellTotal.setAttribute("id", "Total");
     cellTotal.setAttribute("colspan", 6);
     cellTotal.style.textAlign = "center";
@@ -123,7 +124,69 @@ window.onload = () => {
     lineTotal.appendChild(cellTotal);
     tbody.appendChild(lineTotal);
 
+    /*
+    pour validation du formulaire
+    */
 
+    let formOrder = document.getElementById("formOrder");
+
+
+    formOrder.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let firstName = document.getElementById("firstName");
+        let lastNamed = document.getElementById("lastNamed");
+        let email = document.getElementById("email");
+        let address = document.getElementById("address");
+        let city = document.getElementById("city");
+        let codePostal = document.getElementById("codePostal");
+
+        console.log(formOrder.checkValidity);
+        // if (firstName || lastNamed || email || address || codePostal ==""){
+        // }
+        if (objCart == 0 || objCart == undefined) {
+            alert("Votre panier est vide");
+        } else {
+            console.log("YO MAN");
+
+            var ids = [];
+
+            for (const teddyObj of objCart) {
+                ids.push(teddyObj.id);
+            }
+
+            var data = {
+                "contact": {
+                    "firstName": firstName.value,
+                    "lastName": lastName.value,
+                    "address": address.value,
+                    "city": city.value,
+                    "email": email.value
+                },
+                "products": ids
+            }
+
+
+            fetch("http://localhost:3000/api/teddies/order",{
+                    method : "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+
+                })
+            .then(response => response.json())
+            .then(response => {console.log(JSON.stringify(response))
+            alert("Votre numéro de commande est : " + response.orderId)
+            // window.location.href = '/confirmation.html?order=xxxxxx&total=xxxxxx'
+            })
+            .catch(error => alert("Erreur : " + error))
+
+
+        }
+
+
+    });
 
 }
 
