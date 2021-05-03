@@ -177,8 +177,9 @@ window.onload = () => {
                 })
             .then(response => response.json())
             .then(response => {console.log(JSON.stringify(response))
-            alert("Votre numéro de commande est : " + response.orderId)
-            // window.location.href = '/confirmation.html?order=xxxxxx&total=xxxxxx'
+            console.log("Votre numéro de commande est : " + response.orderId)
+            // window.location.href = '/order_confirmation.html?order=xxxxxx&total=xxxxxx'
+            window.location.href = "order_confirmation.html?order=" + response.orderId + "&total=" + total
             })
             .catch(error => alert("Erreur : " + error))
 
