@@ -1,5 +1,5 @@
 window.onload = () =>{
-
+    //récupération des infos dans URL num commande et total
     var searchParams = new URLSearchParams(window.location.search);
     const orderId = searchParams.get("order");
     const montantTotal = searchParams.get("total");

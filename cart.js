@@ -1,12 +1,12 @@
 window.onload = () => {
-
+    //récupération du panier dans le localStorage
     const localPanier = localStorage.getItem("cart");
     console.log(localPanier);
 
+    //on parse pour utilisation sous forme d'objet
     let objCart = JSON.parse(localPanier) || [];
     console.log(objCart);
 
-    // let teddyObj;
 
     let idDuTeddy = "";
     let teddyObj;
@@ -14,6 +14,7 @@ window.onload = () => {
 
     let compteur = 1;
 
+    // création du modele Panier
     class Panier {
         constructor(color, name, price, _id, qty) {
             this.color = color;
@@ -22,6 +23,7 @@ window.onload = () => {
             this._id = _id;
             this.qty = qty;
         }
+        // méthode pour création du tableau récap commande
         tableau() {
 
             let line = document.createElement("tr");
@@ -83,8 +85,8 @@ window.onload = () => {
                 const cart = JSON.stringify(objCart) || [];
                 var newCart = localStorage.setItem("cart", cart);
                 document.location.reload();
-
             }
+            
             console.log(objCart);
             btnSup.addEventListener("click", SuppTeddie);
         }
@@ -166,7 +168,9 @@ window.onload = () => {
                 "products": ids
             }
 
-
+            /* appel API pour envoi de la requete commande
+            et reception du numéro de commande
+            */
             fetch("http://localhost:3000/api/teddies/order",{
                     method : "POST",
                     headers: {
@@ -179,8 +183,10 @@ window.onload = () => {
             .then(response => {console.log(JSON.stringify(response))
             console.log("Votre numéro de commande est : " + response.orderId)
             
-            // window.location.href = '/order_confirmation.html?order=xxxxxx&total=xxxxxx'
+            //redirection vers page confirmation de commande
             window.location.href = "./order_confirmation.html?order=" + response.orderId + "&total=" + total
+
+            //effacer le localStorage une fois la commande envoi à l'API
             localStorage.clear();
             })
             .catch(error => alert("Erreur : " + error))

@@ -1,3 +1,5 @@
+/* création d'une class teddy qui sert de modele
+*/
 class Teddy {
 
     constructor(colors, description, imageUrl, name, price, _id) {
@@ -9,6 +11,8 @@ class Teddy {
         this._id = _id;
     }
 
+    // mise en place d'un méthode pour la création de card 
+    
     getCard() {
         let col = document.createElement("div");
         col.classList.add("col-12", "col-md-6");
