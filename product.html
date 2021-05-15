@@ -20,103 +20,125 @@
 
 </head>
 
-<body class="container">
+<body class="container vh-100">
+    <div class="col">
 
-    <!-- Header -->
-    <div class="row">
-        <nav class="col navbar navbar-dark bg-primary navbar-expand-lg">
-            <a class="navbar-brand" href="index.html">Orinoco</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navbarContent" class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./cart.html">Panier</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
 
-    <div class="row">
-        <!-- Image -->
-        <div class="col-12 col-lg-6">
-            <div class="card bg-light mb-3">
-                <div class="card-body" id="photoTeddie">
-                    <!-- <img class="img-fluid" src="" id="imgTeddy" alt="" /> -->
-                    <p class="text-center" id="nameTeddy"></p>
+        <!-- Header -->
+        <div class="row">
+            <nav class="col navbar navbar-dark bg-primary navbar-expand-lg">
+                <a class="navbar-brand" href="index.html">Orinoco</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./cart.html">Panier</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+            </nav>
         </div>
 
-        <!-- Add to cart -->
-        <div class="col-12 col-lg-6 add_to_cart_block">
-            <div class="card bg-light mb-3">
-                <div class="card-body">
-                    <p class="price" id="prix">$</p>
-                    <form method="get" action="cart.html">
-                        <div class="form-group">
-                            <label for="colors">Couleur</label>
-                            <select class="custom-select" id="colors">
-                                <!-- <option value="" selected disabled>Choix</option> -->
-                            </select>
+        <div class="row min-vh-100">
+
+
+            <div class="row">
+                <!-- Image -->
+                <div class="col-12 col-lg-6">
+                    <div class="card bg-light mb-3">
+                        <div class="card-body" id="photoTeddie">
+                            <!-- <img class="img-fluid" src="" id="imgTeddy" alt="" /> -->
+                            <p class="text-center" id="nameTeddy"></p>
                         </div>
-                        <div class="form-group">
-                            <label>Quantité :</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"
-                                        data-type="minus" data-field="" id="moins">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
+                    </div>
+                </div>
+
+                <!-- Add to cart -->
+                <div class="col-12 col-lg-6 add_to_cart_block">
+                    <div class="card bg-light mb-3">
+                        <div class="card-body">
+                            <p class="price" id="prix">$</p>
+                            <form method="get" action="cart.html">
+                                <div class="form-group">
+                                    <label for="colors">Couleur</label>
+                                    <select class="custom-select" id="colors">
+                                        <!-- <option value="" selected disabled>Choix</option> -->
+                                    </select>
                                 </div>
-                                <input type="number" class="form-control text-center" id="quantity" name="quantity" min="1"
-                                    max="100" value="1">
-                                <div class="input-group-append">
-                                    <button type="button" class="quantity-right-plus btn btn-success btn-number"
-                                        data-type="plus" data-field="" id="plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
+                                <div class="form-group">
+                                    <label>Quantité :</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="quantity-left-minus btn btn-danger btn-number"
+                                                data-type="minus" data-field="" id="moins">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="quantity"
+                                            name="quantity" min="1" max="100" value="1">
+                                        <div class="input-group-append">
+                                            <button type="button" class="quantity-right-plus btn btn-success btn-number"
+                                                data-type="plus" data-field="" id="plus">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <button id="btnAddCart" type="button" class="btn btn-primary btn-lg btn-block" value="Input">
-                            <i class="fa fa-shopping-cart"></i> Ajouter au panier
-                            <!-- <a href="" class="btn btn-success btn-lg btn-block text-uppercase" id="btnAddCart" type="submit">
+                                <button id="btnAddCart" type="button" class="btn btn-primary btn-lg btn-block"
+                                    value="Input">
+                                    <i class="fa fa-shopping-cart"></i> Ajouter au panier
+                                    <!-- <a href="" class="btn btn-success btn-lg btn-block text-uppercase" id="btnAddCart" type="submit">
                                     <i class="fa fa-shopping-cart"></i> Ajouter au panier
                                 </a> -->
-                        </button>
-                    </form>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <!-- Description -->
-        <div class="col-12">
-            <div class="card border-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-align-justify"></i>
-                    Description</div>
-                <div class="card-body">
-                    <p class="card-text" id="descript">
-                        yo yo yo
-                    </p>
-                    <!-- <p class="card-text">
+            <div class="row">
+                <!-- Description -->
+                <div class="col-12">
+                    <div class="card border-light mb-3">
+                        <div class="card-header bg-primary text-white text-uppercase"><i
+                                class="fa fa-align-justify"></i>
+                            Description</div>
+                        <div class="card-body">
+                            <p class="card-text" id="descript">
+                                yo yo yo
+                            </p>
+                            <!-- <p class="card-text">
                             Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la littérature classique, découvrit la source incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33 du "De Finibus Bonorum et Malorum" (Des Suprêmes Biens et des Suprêmes Maux) de Cicéron. Cet ouvrage, très populaire pendant la Renaissance, est un traité sur la théorie de l'éthique. Les premières lignes du Lorem Ipsum, "Lorem ipsum dolor sit amet...", proviennent de la section 1.10.32.
                         </p> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer row">
+            <div class="col">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item"><a href="index.html">Acceuil</a></li>
+                    <li class="list-inline-item"><a href="#">Services</a></li>
+                    <li class="list-inline-item"><a href="#">A propos</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="copyright text-center">Onorico © 2021</p>
+            </div>
+        </footer>
     </div>
-    <!-- Footer -->
-    <div class="row">
-        footer
-    </div>
+
 
 
         
